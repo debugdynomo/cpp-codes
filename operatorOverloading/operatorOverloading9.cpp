@@ -4,12 +4,14 @@ using namespace std;
 
 class Obj {
     int val;
+    int x = 100;
 public:
     Obj(int v=0): val(v) { cout << "Construct " << val << "\n"; }
     ~Obj() { cout << "Destruct " << val << "\n"; }
 
     void* operator new(size_t sz) {
         cout << "Custom new\n";
+        cout << "sz: " << sz << "\n";
         return malloc(sz);
     }
     void operator delete(void* p) {
@@ -18,6 +20,7 @@ public:
     }
     void* operator new[](size_t sz) {
         cout << "Custom new[]\n";
+        cout << "sz(array): " << sz << "\n";
         return malloc(sz);
     }
     void operator delete[](void* p) {
@@ -35,7 +38,5 @@ int main() {
     int *n = new int(10);
 
     cout << *n << "\n";
-
-    void*p = NULL;
     return 0;
 }
