@@ -31,4 +31,11 @@ int main() {
     delete p;
     Obj* arr = new Obj[2];
     delete[] arr;
+
+    int *n = new int(10);
+
+    cout << *n << "\n";
+
+    void*p = NULL;
+    return 0;
 }

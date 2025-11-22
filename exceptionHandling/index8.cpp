@@ -3,9 +3,9 @@
 using namespace std;
 void Xhandler() {
     try {
-        throw "hello"; // throw a char *
+        throw string("hello"); // throw a char *
     }
-    catch(const char *) { // catch a char *
+    catch(const string& s) { // catch a char *
         cout << "Caught char * inside Xhandler\n";
         throw ; // rethrow char * out of function
     }
@@ -15,7 +15,7 @@ int main() {
     try{
         Xhandler();
     }
-    catch(const char *) {
+    catch(const string& s) {
         cout << "Caught char * inside main\n";
     }
     catch(...) {

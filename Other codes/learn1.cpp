@@ -30,5 +30,7 @@ int main() {
     a.show();
     A b = a;
     b.show();
+    A c;
+    c = a;
     return 0;
 }
